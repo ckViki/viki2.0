@@ -8,11 +8,11 @@
         if(socialmedia == 'insta'){   
             window.open('https://www.instagram.com/c_k_viki/', '_blank');
         } else if (socialmedia == 'twitter') {
-            window.open('https://www.instagram.com/c_k_viki/', '_blank');
+            // window.open('https://www.instagram.com/c_k_viki/', '_blank');
         } else if (socialmedia == 'whatsup') {
-            window.open('https://wa.me/9629846371', '_blank');
+            window.open('https://wa.me/9543852867', '_blank');
         } else if (socialmedia == 'linkedIn') {
-            window.open('https://www.instagram.com/c_k_viki/', '_blank');
+            window.open('https://www.linkedin.com/in/vignesh-kumar-c-02915b203', '_blank');
         }
     }
 

@@ -103,7 +103,9 @@
     <hr class="md:hidden mt-5 mx-2">
 
     <div class="flex flex-col px-4 md:px-10 gap-5">
-        <div class="font-semibold my-5">Tools</div>
+        <div class="font-semibold my-5">
+          <img src="" alt="">  Tools
+        </div>
 
         <div class="flex items-center gap-8">
             <div class="w-1/3">
@@ -116,7 +118,7 @@
             <div class="w-full">
                 <span>70%</span>
                 <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                    <div class="bg-blue-600 shadow shadow-blue-500/50 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" style="width: 50%"></div>
+                    <div class="bg-blue-600 shadow shadow-blue-500/50 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" style="width: 70%"></div>
                 </div>
             </div>
         </div>
@@ -158,7 +160,7 @@
             <div class="w-full">
                 <span>30%</span>
                 <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                    <div class="bg-blue-600 shadow shadow-blue-500/50 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" style="width: 50%"></div>
+                    <div class="bg-blue-600 shadow shadow-blue-500/50 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" style="width: 30%"></div>
                 </div>
             </div>
         </div>

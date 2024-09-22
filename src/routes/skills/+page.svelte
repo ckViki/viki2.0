@@ -1,5 +1,5 @@
 
-<div class="flex font-semibold text-[26px] text-white px-5">
+<div class="flex font-semibold text-[26px] mt-10 md:mt-0 text-white px-5">
     Skills
 </div>
 

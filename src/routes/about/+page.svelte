@@ -1,6 +1,6 @@
 <div class="px-4 pt-5 text-white w-full pb-10">
 
-    <div class="md:flex grid grid-cols-2">
+    <div class="md:flex grid md:grid-cols-2">
         <div class="w-full">
             <div class="flex h-full">
                 <div class="text-center m-auto">
@@ -19,7 +19,7 @@
         </div>
 
         <div class="w-full flex">
-            <img src="/viki.jpg" class="m-auto max-h-[90vh] rounded-[30%]" alt="">
+            <img src="/viki.jpg" class="m-auto max-h-[90vh] rounded-[5%] md:rounded-[30%]" alt="">
         </div>
     </div>
 

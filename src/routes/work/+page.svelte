@@ -1,4 +1,4 @@
-<div class="flex flex-col text-white w-full px-2 md:px-0 z-50" style="min-height: 95vh">
+<div class="flex bg-gray-50 flex-col text-black w-full px-2 md:px-0 z-50" style="min-height: 95vh">
 
     <div class="font-bold text-[26px] md:px-5" >Experience</div>
 
@@ -37,23 +37,22 @@
 
 
 
-    <div class="flex flex-col w-full gap-5 px-2 md:px-5 mt-5">
+    <div class="flex flex-col w-full text-white gap-5 px-2 md:px-5 mt-5">
 
-        <div class="w-full md:w-1/2 md:px-5 py-2 border border-green-50 text-center rounded-[10px] shadow-lg shadow-green-50">
+        <div class="w-full md:w-1/2 md:px-5 min-h-[150px]  bg-black py-2 border border-black-50 text-center rounded-[10px] shadow-lg shadow-black-200">
+            <span class="text-[20px] font-bold underline underline-offset-8">Intern - Adaptive Media - 2021</span>
+            <div class="mx-1 md:mx-5 mt-6 text-[14px]">In 2021, I started my web development career as an intern, igniting my passion for coding and web design. This experience marked the beginning of my exciting journey in the digital world.
+            </div>
+        </div>
+
+        <div class="md:ml-auto w-full md:w-1/2  bg-black md:px-5 py-2 border border-black-50 text-center rounded-[10px] shadow-lg shadow-black-200">
             <span class="text-[20px] font-bold underline underline-offset-8">Associate Software Engineer - Adaptive Media - 2021 - 2023</span>
             <div class="mx-1 md:mx-5 mt-4 text-[14px]">After completing my internship, I was hired as a full-time employee at the same company, where I dedicated two years to honing my skills in both backend and frontend web development. During this time, my primary focus was on the frontend, where I played a pivotal role in the development of a project named "Cleared 4." This project served as a crucial corona safety measures tool, leveraging innovative web technologies to provide real-time guidance and information to users.
                 Working on Cleared 4 allowed me to contribute to the fight against the pandemic by creating a user-friendly and informative platform that helped ensure the safety and well-being of individuals.
             </div>
         </div>
 
-        <div class="md:ml-auto w-full md:w-1/2 md:px-5 py-2 border border-green-50 text-center rounded-[10px] shadow-lg shadow-green-50">
-            <span class="text-[20px] font-bold underline underline-offset-8">Associate Software Engineer - Adaptive Media - 2021 - 2023</span>
-            <div class="mx-1 md:mx-5 mt-4 text-[14px]">After completing my internship, I was hired as a full-time employee at the same company, where I dedicated two years to honing my skills in both backend and frontend web development. During this time, my primary focus was on the frontend, where I played a pivotal role in the development of a project named "Cleared 4." This project served as a crucial corona safety measures tool, leveraging innovative web technologies to provide real-time guidance and information to users.
-                Working on Cleared 4 allowed me to contribute to the fight against the pandemic by creating a user-friendly and informative platform that helped ensure the safety and well-being of individuals.
-            </div>
-        </div>
-
-        <div class="w-full md:w-1/2 md:px-5 py-2 border border-green-50 text-center rounded-[10px] shadow-lg shadow-green-50">
+        <div class="w-full md:w-1/2 md:px-5  bg-black py-2 border border-black-50 text-center rounded-[10px] shadow-lg shadow-black-200">
             <span class="text-[20px] font-bold underline underline-offset-8">
                 Frontend Developer - Mariyano Technologies - Present
             </span>

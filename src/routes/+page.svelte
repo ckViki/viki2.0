@@ -7,8 +7,8 @@
 
 <Home></Home>
 
-<Work></Work>
+<!-- <Work></Work>
 
 <Skill></Skill>
 
-<About></About>
+<About></About> -->

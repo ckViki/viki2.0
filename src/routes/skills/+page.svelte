@@ -8,7 +8,7 @@
     <div class="flex flex-col px-4 md:px-10 gap-5">
         <div class="font-semibold my-5">Indsutry Knowledge</div>
 
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-8 animate-fade-right animate-once animate-delay-300 ">
             <div class="font-semibold w-1/3">
                 <img class="w-14" src="/skill/html-5.png" alt=""> 
             </div>
@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-8 animate-fade-right animate-once animate-delay-300">
             <div class="font-semibold w-1/3">
                 <img class="w-14" src="/skill/css-3.png" alt=""> 
             </div>
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-8 animate-fade-right animate-once animate-delay-300">
             <div class="font-semibold w-1/3">
                 <img class="w-14" src="/skill/javascript.png" alt=""> 
             </div>
@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-8 animate-fade-right animate-once animate-delay-300">
             <div class="font-semibold w-1/3">
                 <img class="w-14" src="/skill/bootstrap.png" alt=""> 
             </div>
@@ -60,7 +60,7 @@
             </div>
         </div>
 
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-8 animate-fade-right animate-once animate-delay-300">
             <div class="font-semibold w-1/3">
                 <img class="w-14" src="/skill/Tailwind CSS.png" alt="">  
             </div>
@@ -73,7 +73,7 @@
             </div>
         </div>
 
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-8 animate-fade-right animate-once animate-delay-300">
             <div class="font-semibold w-1/3">
                 <img class="w-14" src="/skill/angular-logo 2.png" alt="">  
             </div>
@@ -86,7 +86,7 @@
             </div>
         </div>
         
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-8 animate-fade-right animate-once animate-delay-300">
             <div class="font-semibold w-1/3">
                 <img class="w-14" src="/skill/Svelte.png" alt="">  
             </div>
@@ -107,7 +107,7 @@
           <img src="" alt="">  Tools
         </div>
 
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-8 animate-fade-left animate-once animate-delay-300">
             <div class="w-1/3">
                 <div class="font-semibold w-fit rounded-full shadow-md shadow-gray-50 bg-gray-500">
                     <img class="w-14" src="/skill/GitHub.png" alt="">  
@@ -123,7 +123,7 @@
             </div>
         </div>
         
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-8 animate-fade-left animate-once animate-delay-300">
             <div class="font-semibold w-1/3 rounded-full">
                 <img class="w-14 rounded" src="/skill/Adobe Photoshop.png" alt="">  
             </div>
@@ -136,7 +136,7 @@
             </div>
         </div>
 
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-8 animate-fade-left animate-once animate-delay-300">
             <div class="font-semibold w-1/3">
                 <img class="w-14" src="/skill/Figma 2.png" alt="">  
             </div>
@@ -149,7 +149,7 @@
             </div>
         </div>
 
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-8 animate-fade-left animate-once animate-delay-300">
             <div class="w-1/3">
                 <div class="font-semibold">
                     <img class="w-14" src="/skill/Firebase.png" alt="">  
@@ -171,7 +171,7 @@
     <div class="flex flex-col px-4 md:px-10 hidden">
         <div class="font-semibold my-5">Languages</div>
 
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-8 animate-fade-right animate-once animate-delay-300">
             <div class="font-semibold w-1/3">
                 Tamil 
             </div>
@@ -184,7 +184,7 @@
             </div>
         </div>
 
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-8 animate-fade-right animate-once animate-delay-300">
             <div class="font-semibold w-1/3">
                 English 
             </div>
@@ -197,7 +197,7 @@
             </div>
         </div>
 
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-8 animate-fade-right animate-once animate-delay-300">
             <div class="font-semibold w-1/3">
                 Hindi 
             </div>

@@ -1,6 +1,6 @@
 
 
-<div class="flex w-full  h-[100vh] text-white relative">
+<div class="flex w-full  h-[92.5vh] text-white relative">
     <img src="/image/white 2.png" class="absolute imageFade animate-fade-up animate-once animate-delay-200 z-10 left-[25%] md:left-[40%] md:mt-[2px] mt-10 h-[50vh] md:h-[60vh]" alt="" style="color:transparent;">
     <div class="m-auto text-center animate-fade-down animate-once animate-duration-[1000ms] animate-delay-200" >
         <div class=" content transition z-50 font-semibold duration-1000 ease-in-out md:hover:scale-125 text-[13.5vw] ">

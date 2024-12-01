@@ -19,15 +19,11 @@
         </div>
 
         <div class="w-full flex">
-            <img src="/viki.jpg" class="m-auto max-h-[90vh] rounded-[5%] md:rounded-[30%]" alt="">
+            <img src="/working.png" class="m-auto max-h-[90vh]" alt="">
         </div>
     </div>
 
     <div class="md:flex grid grid-cols-2">
-
-        <div class="w-full">
-            
-        </div>
 
         <div class="w-full hidden">
 

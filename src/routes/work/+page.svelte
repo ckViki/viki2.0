@@ -1,6 +1,6 @@
-<div class="flex bg-gray-50 flex-col text-black w-full px-2 md:px-0 z-50 h-[92.5vh]">
+<div class="flex bg-black flex-col text-black w-full px-2 md:px-0 z-50 md:h-[92.5vh]">
 
-    <div class="font-bold text-[26px] md:px-5" >Experience</div>
+    <div class="font-semibold text-white text-[26px] md:px-5" >Experience</div>
 
     <div class="w-full m-auto flex flex-col gap-8 text-black hidden">
         <div class="max-w-[60vw] m-auto rounded border border-white bg-white">
@@ -37,7 +37,7 @@
 
 
 
-    <div class="flex flex-col w-full text-white gap-5 px-2 md:px-5">
+    <div class="flex flex-col w-full text-white gap-5 mt-5 px-2 md:px-5">
 
         <div class="animate-fade-right animate-once animate-delay-300 w-full md:w-1/2 md:px-5 min-h-[150px]  bg-black py-2 border border-black-50 text-center rounded-[10px] shadow-lg shadow-black-200">
             <span class="text-[20px] font-bold underline underline-offset-8">Intern - Adaptive Media - 2021</span>

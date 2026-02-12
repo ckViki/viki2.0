@@ -23,10 +23,6 @@
 .imageFade{
     mask-image: linear-gradient(180deg, #000 40%, #0000);
 }
-.animate {
-    animation: ease-in;
-    animation: fadeInLeft 2s ease forwards
-}
 
 .content {
     -webkit-animation: fadeInLeft 2s ease forwards;

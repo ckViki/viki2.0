@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.swiper-slide {
+    box-shadow: none !important;
+}
+
+.swiper .swiper-cards {
+perspective: none !important;
+}
+
+.swiper-slide-shadow {
+display: none !important;
+}

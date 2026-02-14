@@ -3,11 +3,10 @@
     import Navbar from '../routes/navbar/+page.svelte'
 </script>
 
-<div class="w-full h-full min-h-[100vh] bg-black">
+<div class="w-full h-full min-h-[100vh] bg-black pt-28">
     <Navbar></Navbar>
 
     <slot></slot>
-    
 </div>
 
 <style></style>

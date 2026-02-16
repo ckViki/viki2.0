@@ -1,119 +1,86 @@
 <script>
+    // @ts-nocheck
     import { fade, fly } from "svelte/transition";
     import { quintOut } from "svelte/easing";
 
     const industryKnowledge = [
-        {
-            name: "HTML 5",
-            icon: "/skill/html-5.png",
-            percent: 90,
-            color: "text-orange-500",
-        },
-        {
-            name: "CSS 3",
-            icon: "/skill/css-3.png",
-            percent: 85,
-            color: "text-blue-500",
-        },
-        {
-            name: "JavaScript",
-            icon: "/skill/javascript.png",
-            percent: 75,
-            color: "text-yellow-400",
-        },
-        {
-            name: "Bootstrap",
-            icon: "/skill/bootstrap.png",
-            percent: 90,
-            color: "text-purple-600",
-        },
-        {
-            name: "Tailwind CSS",
-            icon: "/skill/Tailwind CSS.png",
-            percent: 80,
-            color: "text-cyan-400",
-        },
-        {
-            name: "Angular",
-            icon: "/skill/angular-logo 2.png",
-            percent: 60,
-            color: "text-red-500",
-        },
-        {
-            name: "Svelte",
-            icon: "/skill/Svelte.png",
-            percent: 80,
-            color: "text-orange-600",
-        },
-        {
-            name: "React",
-            icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png",
-            percent: 25,
-            color: "text-cyan-400",
-        },
+        { name: "HTML 5", icon: "/skill/html-5.png", percent: 90 },
+        { name: "CSS 3", icon: "/skill/css-3.png", percent: 85 },
+        { name: "JavaScript", icon: "/skill/javascript.png", percent: 75 },
+        { name: "Bootstrap", icon: "/skill/bootstrap.png", percent: 90 },
+        { name: "Tailwind CSS", icon: "/skill/Tailwind CSS.png", percent: 80 },
+        { name: "Angular", icon: "/skill/angular-logo 2.png", percent: 60 },
+        { name: "Svelte", icon: "/skill/Svelte.png", percent: 80 },
+        { name: "React", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png", percent: 25 },
     ];
 
     const tools = [
         { name: "GitHub", icon: "/skill/GitHub.png", percent: 70 },
-        {
-            name: "Adobe Photoshop",
-            icon: "/skill/Adobe Photoshop.png",
-            percent: 80,
-        },
+        { name: "Adobe Photoshop", icon: "/skill/Adobe Photoshop.png", percent: 80 },
         { name: "Figma", icon: "/skill/Figma 2.png", percent: 50 },
         { name: "Firebase", icon: "/skill/Firebase.png", percent: 30 },
     ];
 
-    const languages = [
-        { name: "Tamil", percent: 100 },
-        { name: "English", percent: 90 },
-        { name: "Hindi", percent: 10 },
-    ];
+    function handleMouseMove(e, node) {
+        const rect = node.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 15;
+        const rotateY = (centerX - x) / 15;
+        node.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+    }
+
+    function handleMouseLeave(node) {
+        node.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+    }
 </script>
 
-<div class="container mx-auto px-4 py-10 min-h-screen">
+<div class="container mx-auto px-4 py-20 min-h-screen">
     <!-- Header -->
-    <div class="mb-12 text-center md:text-left">
-        <h1 class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 inline-block">
-            Skills & Expertise
+    <div class="mb-20 text-center">
+        <h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter text-white">
+            Expertise
         </h1>
+        <div class="h-1 w-20 bg-white mx-auto mt-4"></div>
     </div>
 
-    <div class="flex flex-col gap-16">
+    <div class="flex flex-col gap-24">
         <!-- Industry Knowledge Section -->
         <section>
-            <h2 class="text-2xl font-semibold text-white mb-8 flex items-center gap-3">
-                <span class="w-10 h-1 bg-blue-500 rounded-full"></span>
-                Industry Knowledge
-            </h2>
+            <div class="flex items-center gap-4 mb-12">
+                <h2 class="text-2xl font-bold uppercase tracking-[0.2em] text-zinc-500 italic">Industry <span class="text-white not-italic">Knowledge</span></h2>
+                <div class="h-[1px] flex-1 bg-white/10"></div>
+            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {#each industryKnowledge as skill, i}
                     <div
-                        in:fly={{
-                            y: 20,
-                            duration: 800,
-                            delay: i * 100,
-                            easing: quintOut,
-                        }}
-                        class="group relative bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-blue-500/50 hover:bg-gray-800/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 hover:-translate-y-1"
+                        in:fly={{ y: 30, duration: 1000, delay: i * 100, easing: quintOut }}
+                        class="group relative perspective-1000"
                     >
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="bg-gray-800 rounded-lg p-3 group-hover:bg-gray-700 transition-colors">
-                                <img class="w-10 h-10 object-contain" src={skill.icon} alt={skill.name} />
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-100">
-                                {skill.name}
-                            </h3>
-                        </div>
-
-                        <div class="space-y-2">
-                            <div class="flex justify-between text-sm">
-                                <span class="text-gray-400">Proficiency</span>
-                                <span class="text-blue-400 font-mono">{skill.percent}%</span>
-                            </div>
-                            <div class="h-2 w-full bg-gray-700 rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-blue-600 to-purple-600 rounded-full group-hover:from-blue-500 group-hover:to-purple-500 transition-all duration-1000 ease-out" style="width: {skill.percent}%"></div>
+                        <div
+                            role="presentation"
+                            class="bg-zinc-900/40 backdrop-blur-xl border border-white/5 rounded-3xl p-8 transition-all duration-300 ease-out preserve-3d group-hover:border-white/20 group-hover:bg-zinc-800/50"
+                            on:mousemove={(e) => handleMouseMove(e, e.currentTarget)}
+                            on:mouseleave={(e) => handleMouseLeave(e.currentTarget)}
+                        >
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-16 h-16 mb-6 grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-110">
+                                    <img class="w-full h-full object-contain" src={skill.icon} alt={skill.name} />
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-4 tracking-tight">{skill.name}</h3>
+                                
+                                <div class="w-full space-y-2">
+                                    <div class="flex justify-between text-[10px] font-mono uppercase tracking-widest text-zinc-500">
+                                        <span>Mastery</span>
+                                        <span>{skill.percent}%</span>
+                                    </div>
+                                    <div class="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                                        <div class="h-full bg-white transition-all duration-1000 ease-out" style="width: {skill.percent}%"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -123,100 +90,51 @@
 
         <!-- Tools Section -->
         <section>
-            <h2 class="text-2xl font-semibold text-white mb-8 flex items-center gap-3">
-                <span class="w-10 h-1 bg-purple-500 rounded-full"></span>
-                Tools & Technologies
-            </h2>
+            <div class="flex items-center gap-4 mb-12">
+                <h2 class="text-2xl font-bold uppercase tracking-[0.2em] text-zinc-500 italic">Key <span class="text-white not-italic">Stack</span></h2>
+                <div class="h-[1px] flex-1 bg-white/10"></div>
+            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {#each tools as tool, i}
                     <div
-                        in:fly={{
-                            y: 20,
-                            duration: 800,
-                            delay: (industryKnowledge.length + i) * 100,
-                            easing: quintOut,
-                        }}
-                        class="group relative bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-purple-500/50 hover:bg-gray-800/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 hover:-translate-y-1"
+                        in:fly={{ y: 30, duration: 1000, delay: i * 100, easing: quintOut }}
+                        class="group relative perspective-1000"
                     >
-                        <div class="flex items-center gap-4 mb-4">
-                            <div
-                                class="bg-gray-800 rounded-lg p-3 group-hover:bg-gray-700 transition-colors"
-                            >
-                                <img
-                                    class="w-10 h-10 object-contain"
-                                    src={tool.icon}
-                                    alt={tool.name}
-                                />
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-100">
-                                {tool.name}
-                            </h3>
-                        </div>
-
-                        <div class="space-y-2">
-                            <div class="flex justify-between text-sm">
-                                <span class="text-gray-400">Proficiency</span>
-                                <span class="text-purple-400 font-mono">{tool.percent}%</span>
-                            </div>
-                            <div class="h-2 w-full bg-gray-700 rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-purple-600 to-pink-600 rounded-full group-hover:from-purple-500 group-hover:to-pink-500 transition-all duration-1000 ease-out" style="width: {tool.percent}%"></div>
+                        <div
+                            role="presentation"
+                            class="bg-zinc-900/40 backdrop-blur-xl border border-white/5 rounded-3xl p-8 transition-all duration-300 ease-out preserve-3d group-hover:border-white/20 group-hover:bg-zinc-800/50"
+                            on:mousemove={(e) => handleMouseMove(e, e.currentTarget)}
+                            on:mouseleave={(e) => handleMouseLeave(e.currentTarget)}
+                        >
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-16 h-16 mb-6 grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-110">
+                                    <img class="w-full h-full object-contain" src={tool.icon} alt={tool.name} />
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-4 tracking-tight">{tool.name}</h3>
+                                
+                                <div class="w-full space-y-2">
+                                    <div class="flex justify-between text-[10px] font-mono uppercase tracking-widest text-zinc-500">
+                                        <span>Effectiveness</span>
+                                        <span>{tool.percent}%</span>
+                                    </div>
+                                    <div class="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                                        <div class="h-full bg-white/40 transition-all duration-1000 ease-out" style="width: {tool.percent}%"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 {/each}
             </div>
         </section>
-
-        <!-- Languages Section (Optional / Hidden in original but modernized here) -->
-        {#if languages.length > 0}
-            <section class="hidden">
-                <h2
-                    class="text-2xl font-semibold text-white mb-8 flex items-center gap-3"
-                >
-                    <span class="w-10 h-1 bg-green-500 rounded-full"></span>
-                    Languages
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {#each languages as lang, i}
-                        <div
-                            in:fly={{
-                                y: 20,
-                                duration: 800,
-                                delay:
-                                    (industryKnowledge.length +
-                                        tools.length +
-                                        i) *
-                                    100,
-                                easing: quintOut,
-                            }}
-                            class="bg-gray-900/30 border border-gray-800 rounded-lg p-5 flex items-center justify-between hover:border-green-500/30 transition-colors"
-                        >
-                            <span class="font-medium text-lg text-gray-200"
-                                >{lang.name}</span
-                            >
-                            <div class="flex items-center gap-3">
-                                <div
-                                    class="w-24 h-1.5 bg-gray-700 rounded-full overflow-hidden"
-                                >
-                                    <div
-                                        class="h-full bg-green-500 rounded-full"
-                                        style="width: {lang.percent}%"
-                                    ></div>
-                                </div>
-                                <span
-                                    class="text-sm text-gray-400 w-8 text-right"
-                                    >{lang.percent}%</span
-                                >
-                            </div>
-                        </div>
-                    {/each}
-                </div>
-            </section>
-        {/if}
     </div>
 </div>
 
 <style>
-    /* Custom scrollbar or specific overrides if needed */
+    .preserve-3d {
+        transform-style: preserve-3d;
+        will-change: transform;
+    }
 </style>
+

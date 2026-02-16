@@ -14,78 +14,90 @@
             window.open('https://www.linkedin.com/in/vignesh-kumar-c-02915b203', '_blank');
         }
     }
+
+    function handleMouseMove(e, node) {
+        const rect = node.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+        node.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    }
+
+    function handleMouseLeave(node) {
+        node.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+    }
 </script>
 
-<div class="container mx-auto px-4 py-10 min-h-screen">
+<div class="container mx-auto px-4 py-20 min-h-screen">
     <!-- Header -->
-    <div class="mb-12 text-center md:text-left">
-        <h1 class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 inline-block">
-            About Me
+    <div class="mb-20 text-center">
+        <h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter text-white">
+            About
         </h1>
+        <div class="h-1 w-20 bg-white mx-auto mt-4"></div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch max-w-6xl mx-auto">
         <!-- Text Content -->
         <div 
-            in:fly={{ x: -20, duration: 800, delay: 200, easing: quintOut }}
-            class="flex flex-col"
+            in:fly={{ x: -50, duration: 1000, delay: 200, easing: quintOut }}
+            class="group perspective-1000"
         >
-            <div class="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-3xl p-8 lg:p-12 hover:border-blue-500/30 transition-all duration-500 shadow-xl shadow-black/20 h-full flex flex-col justify-center">
-                <h2 class="text-3xl font-bold text-white mb-6">So, Who am I?</h2>
-                <p class="text-gray-300 text-lg leading-relaxed mb-8">
-                    As a web developer and designer who lives for the freedom of the online world, I extend that
-                    freedom onto the roads, seeking new inspirations and perspectives on my trusty motorcycle.
+            <div 
+                role="presentation"
+                class="bg-zinc-900/40 backdrop-blur-2xl border border-white/5 rounded-[2rem] p-10 md:p-16 h-full flex flex-col justify-center transition-all duration-300 preserve-3d group-hover:border-white/20"
+                on:mousemove={(e) => handleMouseMove(e, e.currentTarget)}
+                on:mouseleave={(e) => handleMouseLeave(e.currentTarget)}
+            >
+                <h2 class="text-3xl font-black text-white mb-8 uppercase tracking-tight">Identity</h2>
+                <p class="text-zinc-400 text-xl font-light leading-relaxed mb-12">
+                    As a web developer and designer who lives for the <span class="text-white italic">freedom</span> of the online world, I extend that
+                    freedom onto the roads, seeking new inspirations and perspectives on my <span class="text-white font-medium border-b border-white/20">trusty motorcycle</span>.
                 </p>
 
-                <!-- Social Media Desktop & Mobile -->
-                <div class="flex flex-wrap items-center gap-4 md:gap-6 pt-4">
-                    <button 
-                        on:click={()=>gotoSocialMedia('linkedIn')} 
-                        class="p-3 bg-gray-800/50 rounded-xl hover:bg-blue-500/20 hover:scale-110 transition-all duration-300 border border-transparent hover:border-blue-500/50 group"
-                        title="LinkedIn"
-                    >
-                        <img class="w-7 h-7 filter brightness-90 group-hover:brightness-100" src="/socialmedia/linkedin.png" alt="LinkedIn">
-                    </button>
-            
-                    <button 
-                        on:click={()=>gotoSocialMedia('whatsup')} 
-                        class="p-3 bg-gray-800/50 rounded-xl hover:bg-green-500/20 hover:scale-110 transition-all duration-300 border border-transparent hover:border-green-500/50 group"
-                        title="WhatsApp"
-                    >
-                        <img class="w-7 h-7 filter brightness-90 group-hover:brightness-100" src="/socialmedia/whatsup.png" alt="WhatsApp">
-                    </button>
-            
-                    <button 
-                        on:click={()=>gotoSocialMedia('insta')} 
-                        class="p-3 bg-gray-800/50 rounded-xl hover:bg-pink-500/20 hover:scale-110 transition-all duration-300 border border-transparent hover:border-pink-500/50 group"
-                        title="Instagram"
-                    >
-                        <img class="w-7 h-7 filter brightness-90 group-hover:brightness-100" src="/socialmedia/insta.png" alt="Instagram">
-                    </button>
-            
-                    <button 
-                        class="p-3 bg-gray-800/50 rounded-xl hover:bg-blue-400/20 hover:scale-110 transition-all duration-300 border border-transparent hover:border-blue-400/50 group"
-                        title="Telegram"
-                    >
-                        <img class="w-7 h-7 filter brightness-90 group-hover:brightness-100" src="/socialmedia/telegram.png" alt="Telegram">
-                    </button>
+                <!-- Social Media -->
+                <div class="flex flex-wrap items-center gap-6">
+                    {#each [
+                        { name: 'linkedIn', icon: '/socialmedia/linkedin.png' },
+                        { name: 'whatsup', icon: '/socialmedia/whatsup.png' },
+                        { name: 'insta', icon: '/socialmedia/insta.png' },
+                        { name: 'Telegram', icon: '/socialmedia/telegram.png' }
+                    ] as social}
+                        <button 
+                            on:click={() => social.name !== 'Telegram' ? gotoSocialMedia(social.name) : null} 
+                            class="group/btn relative"
+                            title={social.name}
+                        >
+                            <div class="absolute -inset-2 bg-white/10 rounded-2xl opacity-0 group-hover/btn:opacity-100 transition-opacity blur-sm"></div>
+                            <div class="relative p-4 bg-zinc-800/50 rounded-2xl border border-white/5 transition-all duration-300 group-hover/btn:-translate-y-1 group-hover/btn:bg-white group-hover/btn:border-white">
+                                <img class="w-6 h-6 grayscale group-hover/btn:invert transition-all duration-300" src={social.icon} alt={social.name}>
+                            </div>
+                        </button>
+                    {/each}
                 </div>
             </div>
         </div>
 
         <!-- Image Content -->
         <div 
-            in:fly={{ x: 20, duration: 800, delay: 400, easing: quintOut }}
-            class="relative group h-full"
+            in:fly={{ x: 50, duration: 1000, delay: 400, easing: quintOut }}
+            class="relative group"
         >
-            <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
-            <div class="relative bg-gray-900 rounded-3xl overflow-hidden shadow-2xl h-full">
-                <img src="/working.png" class="w-full h-full object-cover transform hover:scale-105 transition duration-700" alt="Working">
+            <div class="absolute inset-0 bg-white/5 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div class="relative bg-zinc-900 rounded-[2rem] overflow-hidden border border-white/5 h-full min-h-[400px]">
+                <img src="/working.png" class="w-full h-full object-cover grayscale transition duration-1000 group-hover:grayscale-0 group-hover:scale-110" alt="Working">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-20 transition-opacity"></div>
             </div>
         </div>
     </div>
 </div>
 
 <style>
-    /* Add any custom animations if needed */
+    .preserve-3d {
+        transform-style: preserve-3d;
+        will-change: transform;
+    }
 </style>

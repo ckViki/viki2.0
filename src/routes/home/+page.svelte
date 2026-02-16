@@ -1,66 +1,73 @@
 <script>
+    // @ts-nocheck
+    import { onMount } from 'svelte';
     import { fly, fade } from 'svelte/transition';
     import { quintOut } from 'svelte/easing';
+    import { browser } from '$app/environment';
+
+    let container;
+    let title1, title2, subtitle, description;
+
+    onMount(async () => {
+        if (browser) {
+            const gsapModule = await import('gsap');
+            const gsap = gsapModule.default;
+            
+            const tl = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.5 } });
+            
+            tl.from(title1, { y: 100, opacity: 0, delay: 0.5 })
+              .from(title2, { y: 100, opacity: 0 }, "-=1.2")
+              .from(subtitle, { x: -50, opacity: 0 }, "-=1")
+              .from(description, { y: 20, opacity: 0 }, "-=0.8");
+        }
+    });
 </script>
 
-<div class="flex w-full h-[90vh] text-white relative overflow-hidden">
-    <!-- Restored Original Hero Image Layout -->
-    <img in:fly={{ y: 40, duration: 1000, delay: 200, easing: quintOut }} src="/image/white 2.png" 
-    class="imageFade absolute z-0 left-[25%] md:left-[40%] mt-10 md:mt-[2px] h-[50vh] md:h-[60vh] select-none pointer-events-none" alt="">
+<div bind:this={container} class="flex flex-col w-full min-h-[90vh] text-white relative items-center justify-center px-4 overflow-hidden">
+    
+    <div class="space-y-2 text-center z-10">
+        <div class="overflow-hidden relative">
+            <h1 bind:this={title2} class="font-black text-[14vw] lg:text-[14vw] leading-[0.8] tracking-tighter uppercase text-transparent stroke-text selection:bg-white selection:text-black">
+                Designer
+            </h1>
+            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent pointer-events-none h-1/2 bottom-0"></div>
+        </div>
 
-    <div class="m-auto  text-center z-10 px-4">
-        <!-- Expanded Beach Sand & Water Wave Effect -->
-        <div in:fly={{ y: -30, duration: 1000, delay: 400, easing: quintOut }} class="mt-5 relative inline-block transition-all duration-1000 ease-in-out md:hover:scale-105">
-            <!-- Sand Layer -->
-            <h1 class="font-bold text-[50px] lg:text-[11.5vw] leading-[0.85] text-white tracking-[0.05em] select-none uppercase">
-                DEVELOPER
-            </h1>
-            
-            <!-- Water Layer -->
-            <h1 class="absolute inset-0 font-bold text-[50px] lg:text-[11.5vw] leading-[0.85] tracking-[0.05em] select-none bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 bg-[length:200%_auto] animate-gradient-slow wave-mask uppercase">
+        <div class="overflow-hidden">
+            <h1 bind:this={title1} class="font-black text-[15vw] lg:text-[14vw] leading-[0.8] tracking-tighter uppercase text-white selection:bg-white selection:text-black">
                 DEVELOPER
             </h1>
         </div>
+    </div>
+
+    <!-- Subtitle and Wide Description -->
+    <div class="mt-12 text-center z-10">
+        <h2 bind:this={subtitle} class="text-xl md:text-3xl font-light tracking-[0.3em] uppercase mb-8 text-zinc-400">
+            UI/UX <span class="text-white font-bold italic">Designer</span>
+        </h2>
         
-        <!-- Subtitle and Wide Description -->
-        <div in:fly={{ y: 20, duration: 800, delay: 600, easing: quintOut }} class="space-y-6 mt-6 md:mt-4">
-            <h2 class="text-2xl md:text-[3.5vw] font-bold tracking-[0.2em] uppercase">
-                UI/UX <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Designer</span>
-            </h2>
-            
-            <p class="max-w-5xl mx-auto text-sm md:text-xl text-gray-400 leading-relaxed font-medium px-4 md:px-0">
-                Your friendly neighborhood <span class="text-blue-400">frontend developer</span>, UX architect, and JavaScript engineer. 
-                I spend my days painting the <span class="text-white">Internet canvas</span> with lines of code, 
-                turning zeroes and ones into <span class="text-purple-400">immersive experiences</span>.
-            </p>
-        </div>
+        <p bind:this={description} class="text-lg md:text-2xl text-zinc-500 leading-relaxed font-light">
+            Your friendly neighborhood <span class="text-white border-b border-white/20">frontend developer</span>, UX architect, and JavaScript engineer. 
+            I spend my days painting the <span class="text-white italic">Internet canvas</span> with lines of code, 
+            turning zeroes and ones into <span class="text-white font-medium">immersive experiences</span>.
+        </p>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-20 transition-opacity hover:opacity-100 cursor-pointer">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 14l-7 7-7-7m14-7l-7 7-7-7" />
+        </svg>
     </div>
 </div>
 
 <style>
-.imageFade {
-    mask-image: linear-gradient(180deg, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
-}
+    .stroke-text {
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+    }
 
-@keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes wave {
-    0% { clip-path: polygon(0% 45%, 15% 44%, 32% 50%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%); }
-    25% { clip-path: polygon(0% 60%, 15% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%); }
-    50% { clip-path: polygon(0% 55%, 18% 50%, 36% 45%, 52% 48%, 68% 55%, 85% 62%, 100% 65%, 100% 100%, 0% 100%); }
-    75% { clip-path: polygon(0% 48%, 16% 55%, 33% 62%, 55% 65%, 72% 60%, 86% 50%, 100% 44%, 100% 100%, 0% 100%); }
-    100% { clip-path: polygon(0% 45%, 15% 44%, 32% 50%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%); }
-}
-
-.animate-gradient-slow {
-    animation: gradient 8s ease infinite;
-}
-
-.wave-mask {
-    animation: wave 6s ease-in-out infinite;
-}
+    :global(::selection) {
+        background: white;
+        color: black;
+    }
 </style>

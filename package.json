@@ -31,7 +31,10 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@types/three": "^0.182.0",
+		"gsap": "^3.14.2",
 		"swiper": "^11.2.10",
-		"tailwindcss-animated": "^1.1.2"
+		"tailwindcss-animated": "^1.1.2",
+		"three": "^0.182.0"
 	}
 }

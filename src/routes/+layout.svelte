@@ -1,12 +1,17 @@
 <script>
     import "../app.css";
     import Navbar from '../routes/navbar/+page.svelte'
+    import Background3D from '../components/Background3D.svelte';
 </script>
 
-<div class="w-full h-full min-h-[100vh] bg-black pt-28">
-    <Navbar></Navbar>
+<div class="relative w-full min-h-screen overflow-x-hidden">
+    <Background3D />
+    <Navbar />
 
-    <slot></slot>
+    <main class="relative z-10 pt-24">
+        <slot />
+    </main>
 </div>
+
 
 <style></style>

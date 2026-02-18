@@ -6,7 +6,7 @@
 
 @layer base {
   html, body {
-    @apply bg-black text-white;
+    @apply text-white;
     scroll-behavior: smooth;
     font-family: 'Outfit', sans-serif;
   }

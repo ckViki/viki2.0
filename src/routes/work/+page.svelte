@@ -5,14 +5,14 @@
 
     const experiences = [
         {
-            company: 'Adaptive Media',
-            role: 'Intern',
-            dates: '2021',
+            company: 'Mariyano Technologies',
+            role: 'Frontend Developer',
+            dates: 'Present',
             summary:
-                "In 2021, I started my web development career as an intern, igniting my passion for coding and web design.",
+                'Focused on modern web interfaces, component-driven UIs, and seamless user experiences.',
             bullets: [
-                'Built responsive layouts and assisted with UI components',
-                'Learned version control and basic frontend tooling'
+                'Implemented modular, reusable components',
+                'Adopted modern tooling and best practices'
             ]
         },
         {
@@ -27,14 +27,14 @@
             ]
         },
         {
-            company: 'Mariyano Technologies',
-            role: 'Frontend Developer',
-            dates: 'Present',
+            company: 'Adaptive Media',
+            role: 'Intern',
+            dates: '2021',
             summary:
-                'Focused on modern web interfaces, component-driven UIs, and seamless user experiences.',
+                "In 2021, I started my web development career as an intern, igniting my passion for coding and web design.",
             bullets: [
-                'Implemented modular, reusable components',
-                'Adopted modern tooling and best practices'
+                'Built responsive layouts and assisted with UI components',
+                'Learned version control and basic frontend tooling'
             ]
         }
     ];

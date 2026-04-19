@@ -5,10 +5,18 @@
     import About from '../routes/about/+page.svelte';
 </script>
 
-<Home></Home>
+<div id="home">
+    <Home></Home>
+</div>
 
-<Work></Work>
+<div id="work">
+    <Work></Work>
+</div>
 
-<Skill></Skill>
+<div id="skills">
+    <Skill></Skill>
+</div>
 
-<About></About>
+<div id="about">
+    <About></About>
+</div>

@@ -2,6 +2,8 @@
     // @ts-nocheck
     import { goto } from "$app/navigation";
     import { page } from "$app/stores";
+    import { onMount } from "svelte";
+    import { browser } from "$app/environment";
 
     function gotoSocialMedia(socialmedia) {
         if(socialmedia == 'insta'){   
@@ -14,6 +16,65 @@
             window.open('https://www.linkedin.com/in/vignesh-kumar-c-02915b203', '_blank');
         }
     }
+
+    let activePath = '/';
+
+    $: {
+        if ($page.url.pathname !== '/') {
+            activePath = $page.url.pathname;
+        } else if (!browser) {
+            activePath = '/';
+        }
+    }
+
+    onMount(() => {
+        if ($page.url.pathname === '/') {
+            activePath = '/';
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            if ($page.url.pathname !== '/') return;
+            
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    if (id === 'home') activePath = '/';
+                    else if (id) activePath = `/${id}`;
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+
+        const sections = ['home', 'work', 'skills', 'about'];
+        sections.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+
+        return () => {
+            observer.disconnect();
+        };
+    });
+
+    const links = [
+        { name: 'Home', path: '/', id: 'home' },
+        { name: 'Work', path: '/work', id: 'work' },
+        { name: 'Skills', path: '/skills', id: 'skills' },
+        { name: 'About', path: '/about', id: 'about' }
+    ];
+
+    function handleNav(link) {
+        if ($page.url.pathname === '/') {
+            const el = document.getElementById(link.id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+                activePath = link.path;
+                return;
+            }
+        }
+        goto(link.path);
+    }
 </script>
 
 <div class="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-fit transition-all duration-500 hover:scale-[1.02]">
@@ -21,16 +82,11 @@
         
         <!-- Navigation Links -->
         <div class="flex items-center gap-1 md:gap-2 justify-center">
-            {#each [
-                { name: 'Home', path: '/' },
-                { name: 'Work', path: '/work' },
-                { name: 'Skills', path: '/skills' },
-                { name: 'About', path: '/about' }
-            ] as link}
+            {#each links as link}
                 <button 
-                    on:click={() => goto(link.path)} 
+                    on:click={() => handleNav(link)} 
                     class="px-5 py-2 rounded-xl text-sm md:text-base font-medium transition-all duration-300 transform
-                    { $page.url.pathname === link.path 
+                    { activePath === link.path 
                         ? 'bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.3)]' 
                         : 'text-gray-400 hover:text-white hover:bg-white/10' }"
                 >
